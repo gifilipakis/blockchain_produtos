@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="ejs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="block.js"></script>
+</head>
+<body>
+    
+    <div id="produtos"></div>
+
+    <script>
+        $(document).ready(function(){
+            var blockchain = ChainDeProdutos;
+            var str = $("template").html();
+            var rendered = new EJS({text:str}).render(blockchain);
+            console.log(rendered);
+            $('#produtos').html(rendered);
+        })
+    </script>
+
+    <script id="template" type="text/x-ejs-template">
+        <div><%= blockchain %></div>
+    </script>
+
+</body>
+</html>
