@@ -74,4 +74,5 @@ ChainDeProdutos.addNewBlock(
   })
 );
 
-console.log(JSON.stringify(ChainDeProdutos, null, 4));
+localStorage.setItem("ChainDeProdutos", JSON.stringify(ChainDeProdutos));
+// console.log(JSON.stringify(ChainDeProdutos, null, 4));

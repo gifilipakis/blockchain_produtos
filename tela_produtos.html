@@ -4,18 +4,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="ejs.js"></script>
+    <script src="node_modules/ejs/ejs.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="block.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="bundle.js"></script>
 </head>
 <body>
     
     <div id="produtos"></div>
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function(){
-            var blockchain = ChainDeProdutos;
-            var str = $("template").html();
+            var blockchain = localStorage.getItem("ChainDeProdutos");
+            var str = $("#template").html();
             var rendered = new EJS({text:str}).render(blockchain);
             console.log(rendered);
             $('#produtos').html(rendered);
@@ -23,8 +24,10 @@
     </script>
 
     <script id="template" type="text/x-ejs-template">
+        <h1>Blockchain de Produtos</h1>
         <div><%= blockchain %></div>
     </script>
 
 </body>
 </html>
+
