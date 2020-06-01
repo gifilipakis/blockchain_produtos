@@ -17,7 +17,7 @@
         $(document).ready(function(){
             var blockchain = localStorage.getItem("ChainDeProdutos");
             var str = $("#template").html();
-            var rendered = new EJS({text:str}).render(blockchain);
+            var rendered = ejs.render(blockchain);
             console.log(rendered);
             $('#produtos').html(rendered);
         })
